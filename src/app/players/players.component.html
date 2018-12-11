@@ -1,0 +1,52 @@
+<h2>Players</h2>
+
+<table class="players">
+  <tr class="players-header">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Batting Average</th>
+    <th>On Base Percentage</th>
+    <th>Hits</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let player of players"
+    [class.selected]="player === selectedPlayer"
+    (click)="onSelect(player)">
+    <td><a routerLink="/detail/{{player.id}}"><span class="badge">{{player.id}}</span></a></td>
+    <td><a routerLink="/detail/{{player.id}}">{{player.name}}</a></td>
+    <td><a routerLink="/detail/{{player.id}}">{{player.ba}}</a></td>
+    <td><a routerLink="/detail/{{player.id}}">{{player.obp}}</a></td>
+    <td><a routerLink="/detail/{{player.id}}">{{player.h}}</a></td>
+    <td><button class="delete" title="delete player" (click)="delete(player)">x</button></td>
+  </tr>
+</table>
+
+<div class="add-player">
+<h2>Add Player</h2>
+<div>
+  <label>Player name:
+    <input #playerName />
+  </label>
+</div>
+<div>
+  <label>Batting Average:
+    <input #playerBa />
+  </label>
+</div>
+<div>
+  <label>On Base Percentage:
+    <input #playerObp />
+  </label>
+</div>
+<div>
+  <label>Hits:
+    <input #playerH />
+  </label>
+</div>
+<div>
+  <button (click)="add(playerName.value, playerBa.value, playerObp.value, playerH.value);
+    playerName.value=''; playerBa.value=''; playerObp.value=''; playerH.value=''">
+    add
+  </button>
+</div>
+</div>

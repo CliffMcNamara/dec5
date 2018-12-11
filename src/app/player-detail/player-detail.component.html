@@ -1,0 +1,24 @@
+<div *ngIf="player">
+ 
+  <h2>{{player.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{player.id}}</div>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="player.name" placeholder="name">
+    </label>
+    <label>Batting Average:
+      <input [(ngModel)]="player.ba" placeholder="batting average">
+    </label>
+    <label>On Base Percentage:
+      <input [(ngModel)]="player.obp" placeholder="on base percentage">
+    </label>
+    <label>Hits:
+      <input [(ngModel)]="player.h" placeholder="hits">
+    </label>
+  </div>
+
+<button (click)="save()">save</button>
+
+<button (click)="goBack()">go back</button>
+ 
+</div>
